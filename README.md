@@ -9,10 +9,10 @@ We update the weight vector $w_k$ of the k-th neuron of the last layer as follow
 $w_{k+1} = w_k + \lambda \frac{e_n}{||x_n||^2_2}    x_n $
 
 where $x_n$ is the input feature map vector of the k-th neuron due to the
-$n$-th instance. This equation is essentially the same as the NLMS equation Eq. (3).
+$n$-th instance. This equation is essentially the same as the NLMS equation.
 
 The figure showing how the optimizer algorithm works for any layer is shown in Fig. \ref{fig:backprop}. For any other layer beside the last layer, the formula becomes slightly different. We use the gradient term as it is and normalize it with the input. 
-\begin{equation} \label{eq:NSGD2}
-w_k \leftarrow w_k + \lambda \frac{\nabla_{w(k)}e_n}{||x_n||^2_2}
-\end{equation}
-Theoretically, (\ref{eq:NSGD1}) and (\ref{eq:NSGD2}) are the same if the cost function is mean squared error.
+
+$ w_k \leftarrow w_k + \lambda \frac{\nabla_{w(k)}e_n}{||x_n||^2_2} $
+
+
