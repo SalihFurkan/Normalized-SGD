@@ -13,6 +13,6 @@ $n$-th instance. This equation is essentially the same as the NLMS equation.
 
 The figure showing how the optimizer algorithm works for any layer is shown in Fig. \ref{fig:backprop}. For any other layer beside the last layer, the formula becomes slightly different. We use the gradient term as it is and normalize it with the input. 
 
-$ w_k \leftarrow w_k + \lambda \frac{\nabla_{w(k)}e_n}{||x_n||^2_2} $
+$w_k \leftarrow w_k + \lambda \frac{\nabla_{w(k)}e_n}{||x_n||^2_2} $
 
 
