@@ -13,7 +13,7 @@ $n$-th instance. This equation is essentially the same as the NLMS equation.
 
 The figure showing how the optimizer algorithm works for any layer is shown in the figure "alg_fig.png". For any other layer beside the last layer, the formula becomes slightly different. We use the gradient term as it is and normalize it with the input. 
 
-$\mathbf{w}_{k+1} = \mathbf{w}_k - \mu \frac{\nabla_{\mathbf{w}_k}L(\mathbf{e}_k)}{\epsilon + ||\mathbf{x}_k||^2_2}$
+$w_{k+1} = w_k - \mu \frac{\nabla_{w_k}L(e_k)}{\epsilon + ||x_k||^2_2}$
 
 $w_k \leftarrow w_k + \lambda \frac{\nabla_{w(k)}e_n}{||x_n||^2_2} $
 
