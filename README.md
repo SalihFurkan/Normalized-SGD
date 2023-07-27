@@ -13,6 +13,7 @@ where $x_n$ is the input feature map vector of the k-th neuron due to the
 $n$-th instance. This equation is essentially the same as the NLMS equation.
 
 The figure showing how the optimizer algorithm works for any layer is shown in the figure. For any other layer beside the last layer, the formula becomes slightly different. We use the gradient term as it is and normalize it with the input. 
+
 ![alg_fig](https://github.com/SalihFurkan/Normalized-SGD/assets/54649498/ef410a25-0877-4391-8f08-b3f08fa5584c)
 
 $w_{k+1} = w_k - \mu \frac{\nabla_{w_k}L(e_k)}{\epsilon + ||x_k||^2_2}$
