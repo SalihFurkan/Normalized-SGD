@@ -15,6 +15,7 @@ The figure showing how the optimizer algorithm works for any layer is shown in t
 
 $w_{k+1} = w_k - \mu \frac{\nabla_{w_k}L(e_k)}{\epsilon + ||x_k||^2_2}$
 
-we incorporate momentum, a technique that aids in navigating high error and low curvature regions. In the INSGD algorithm, we introduce an input momentum term to estimate the power of the dataset, enabling power normalization. By replacing the denominator term with the estimated input power, we emphasize the significance of power estimation in our algorithm. Furthermore, the utilization of input momentum allows us to capture the norm of all the inputs. Denoted as $P$, the input momentum term accumulates the squared $\ell_2$ norm of the input instances:
+We incorporate momentum, a technique that aids in navigating high error and low curvature regions. In the INSGD algorithm, we introduce an input momentum term to estimate the power of the dataset, enabling power normalization. By replacing the denominator term with the estimated input power, we emphasize the significance of power estimation in our algorithm. Furthermore, the utilization of input momentum allows us to capture the norm of all the inputs. Denoted as $P$, the input momentum term accumulates the squared $\ell_2$ norm of the input instances:
 
+$P_k = \beta P_{k-1} + (1-\beta)||x_{k}||_2^2.$
 
