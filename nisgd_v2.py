@@ -5,7 +5,7 @@ from typing import List, Optional
 import time
 
 __all__ = ['NISGD', 'sgd']
-
+# New version (better)
 class NISGD(Optimizer):
 
     def __init__(self, params, lr=required, momentum=0, dampening=0,
