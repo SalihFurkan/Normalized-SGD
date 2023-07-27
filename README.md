@@ -1,6 +1,6 @@
 # Normalized-SGD
 
-In here, we introduce a new optimization algorithm used in machine learning models training which we call Normalized Stochastic Gradient Descent (NSGD) inspired by Normalized Least Mean Squares (NLMS) used in adaptive filtering. In large data sets, with high complexity models, choosing the learning rate is significant and the poor choice of parameters can lead to divergence. The algorithm updates the new set of network weights using the stochastic gradient but with  $\ell_1$ and $\ell_2$-based normalizations on the learning rate parameter similar to the NLMS algorithm. Our main difference from the existing normalization methods is that we do not include the error term in the normalization process. We experimentally observe that our optimization algorithm can train the model to a better accuracy level on different initial settings. In this paper, we demonstrate the efficiency of our training algorithm using ResNet-20 and a toy neural network on different benchmark datasets with different initializations. The NSGD improves the accuracy of the ResNet-20 from 91.96\% to 92.20\% on CIFAR-10 dataset.
+In this paper, we propose a novel optimization algorithm for training machine learning models called Input Normalized Stochastic Gradient Descent (INSGD), inspired by the Normalized Least Mean Squares (NLMS) algorithm used in adaptive filtering. When training complex models on large datasets, the choice of optimizer parameters, particularly the learning rate, is crucial to avoid divergence. Our algorithm updates the network weights using stochastic gradient descent with $\ell_1$ and $\ell_2$-based normalizations applied to the learning rate, similar to NLMS. However, unlike existing normalization methods, we exclude the error term from the normalization process and instead normalize the update term using the input vector to the neuron. Our experiments demonstrate that our optimization algorithm achieves higher accuracy levels compared to different initialization settings. We evaluate the efficiency of our training algorithm on benchmark datasets using ResNet-20, WResNet-18, ResNet-50, and a toy neural network. Our INSGD algorithm improves the accuracy of ResNet-20 on CIFAR-10 from 92.55\% to 92.80\%, the accuracy of MobileNetV3 on CIFAR-10 from 90.83\% to 91.13\%, WResNet-18 on CIFAR-100 from 78.75\% to 78.85\%, and ResNet-50 on ImageNet-1K from 75.56\% to 75.89\%.
 
 Let us assume that we have a linear neuron at the last stage of the network. 
 let $e_n$ be the error due to the n-th training instance.
@@ -12,13 +12,6 @@ where $x_n$ is the input feature map vector of the k-th neuron due to the
 $n$-th instance. This equation is essentially the same as the NLMS equation.
 
 The figure showing how the optimizer algorithm works for any layer is shown in the figure "alg_fig.png". For any other layer beside the last layer, the formula becomes slightly different. We use the gradient term as it is and normalize it with the input. 
-
-\begin{figure*}[htbp]
-    \centering
-    \includegraphics[width=.8\linewidth]{alg_fig.png}
-    \caption{NSGD algorithm for different layers. It utilizes the input to each layer to update the weights.}
-    \label{fig:backprop}
-\end{figure*}
 
 $w_k \leftarrow w_k + \lambda \frac{\nabla_{w(k)}e_n}{||x_n||^2_2} $
 
