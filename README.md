@@ -13,6 +13,13 @@ $n$-th instance. This equation is essentially the same as the NLMS equation.
 
 The figure showing how the optimizer algorithm works for any layer is shown in the figure "alg_fig.png". For any other layer beside the last layer, the formula becomes slightly different. We use the gradient term as it is and normalize it with the input. 
 
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=.8\linewidth]{alg_fig.png}
+    \caption{NSGD algorithm for different layers. It utilizes the input to each layer to update the weights.}
+    \label{fig:backprop}
+\end{figure*}
+
 $w_k \leftarrow w_k + \lambda \frac{\nabla_{w(k)}e_n}{||x_n||^2_2} $
 
 
